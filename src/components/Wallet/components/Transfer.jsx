@@ -22,7 +22,7 @@ const styles = {
     overflow: "hidden",
     textverflow: "ellipsis",
     appearance: "textfield",
-    color: "#041836",
+    color: "#041836",//041836
     fontWeight: "700",
     border: "none",
     backgroundColor: "transparent",

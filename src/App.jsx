@@ -8,21 +8,20 @@ import {
 } from "react-router-dom";
 import Account from "components/Account/Account";
 import Chains from "components/Chains";
-import TokenPrice from "components/TokenPrice";
+// import TokenPrice from "components/TokenPrice";
 import ERC20Balance from "components/ERC20Balance";
 import ERC20Transfers from "components/ERC20Transfers";
-import DEX from "components/DEX";
 import NFTBalance from "components/NFTBalance";
-import Wallet from "components/Wallet";
-import { Layout, Tabs } from "antd";
+import { Layout } from "antd";
 import "antd/dist/antd.css";
-import NativeBalance from "components/NativeBalance";
+// import NativeBalance from "components/NativeBalance";
 import "./style.css";
 import QuickStart from "components/QuickStart";
 import Contract from "components/Contract/Contract";
 import Text from "antd/lib/typography/Text";
 import Ramper from "components/Ramper";
 import MenuItems from "./components/MenuItems";
+import MyDaos from "components/MyDaos";
 const { Header, Footer } = Layout;
 
 const styles = {
@@ -67,20 +66,27 @@ const App = ({ isServerInfo }) => {
   }, [isAuthenticated, isWeb3Enabled]);
 
   return (
-    <Layout style={{ height: "100vh", overflow: "auto" }}>
+    <Layout
+      style={{
+        height: "100vh",
+        overflow: "auto",
+        backgroundImage:
+          "radial-gradient(circle, #33abd6, #09a4dc, #009ce1, #0093e5, #0689e7, #2183e9, #367cea, #4974ea, #536fec, #5e69ed, #6962ee, #755aed)",
+      }}
+    >
       <Router>
         <Header style={styles.header}>
           <Logo />
           <MenuItems />
           <div style={styles.headerRight}>
             <Chains />
-            <TokenPrice
+            {/* <TokenPrice
               address="0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
               chain="eth"
               image="https://cloudflare-ipfs.com/ipfs/QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg/"
               size="40px"
-            />
-            <NativeBalance />
+            /> */}
+            {/* <NativeBalance /> */}
             <Account />
           </div>
         </Header>
@@ -90,21 +96,8 @@ const App = ({ isServerInfo }) => {
             <Route exact path="/quickstart">
               <QuickStart isServerInfo={isServerInfo} />
             </Route>
-            <Route path="/wallet">
-              <Wallet />
-            </Route>
-            <Route path="/1inch">
-              <Tabs defaultActiveKey="1" style={{ alignItems: "center" }}>
-                <Tabs.TabPane tab={<span>Ethereum</span>} key="1">
-                  <DEX chain="eth" />
-                </Tabs.TabPane>
-                <Tabs.TabPane tab={<span>Binance Smart Chain</span>} key="2">
-                  <DEX chain="bsc" />
-                </Tabs.TabPane>
-                <Tabs.TabPane tab={<span>Polygon</span>} key="3">
-                  <DEX chain="polygon" />
-                </Tabs.TabPane>
-              </Tabs>
+            <Route path="/MyDaos">
+              <MyDaos />
             </Route>
             <Route path="/erc20balance">
               <ERC20Balance />
@@ -133,7 +126,13 @@ const App = ({ isServerInfo }) => {
           </Switch>
         </div>
       </Router>
-      <Footer style={{ textAlign: "center" }}>
+      <Footer
+        style={{
+          textAlign: "center",
+          backgroundImage:
+            "linear-gradient(to right, #f9957f, #f7b085, #f3c997, #f1e0b1, #f2f5d0)",
+        }}
+      >
         <Text style={{ display: "block" }}>
           🙋 You have questions? Ask them by contacting {""}
           <a

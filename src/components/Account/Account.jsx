@@ -52,8 +52,11 @@ function Account() {
   if (!isAuthenticated || !account) {
     return (
       <>
-        <div onClick={() => setIsAuthModalVisible(true)}>
-          <p style={styles.text}>Authenticate</p>
+        <div
+          style={{ marginRight: "30px" }}
+          onClick={() => setIsAuthModalVisible(true)}
+        >
+          <p style={styles.text}>Login</p>
         </div>
         <Modal
           visible={isAuthModalVisible}
